@@ -1,0 +1,73 @@
+Diferenciación de colas:(Diferentes colas en BD)
+    Escoger cola para recibir turno.(Físico o virtual).
+    Dispensador de turnos en dos localizaciones(Entrada y Lugar de oferta de servicio).
+    Datos del Turno:
+        1.Turno/Contraseña acceso dinamica  ????
+        2.Cola
+        3.IP Servidor(Privada)
+
+DB:
+    Acceso concurrente.
+    Campos:
+        -COLA
+        -TURNO
+        -DATE
+
+Turnos:
+    XXXXX -> [A-Z][0-9], Por ejemplo
+    A dividir entre los distintos puestos de obtencion de tickets ???
+    Turnos diferentes para usuarios registrados ???
+    Peticion JSON externa: Turno Cola Credenciales
+    Peticion JSON interna: Turno Cola IP?/broadcast?
+
+Aforo -> Tiempo real, Histórico:
+    Datos útiles para Admin y Usuarios.
+    Relación Usuarios_Turno/Usuarios_Totales.
+    Relación aforo-horarios.
+    CÁMARAS en la entrada -> Aforo (IA cuenta personas)
+
+Mostrar datos:
+    Pantallas 
+    WEB?
+
+    Datos:
+        -Tiempo de espera estimado para colas
+        -Turno actual de cada cola
+        -Otros datos útiles del centro.
+
+APPs movil:
+    Usuarios comunes(APP/PWA)??
+        Lector QR.
+        Turno actual.
+        Tiempo de espera estimado.
+        Aviso turno anterior y Mi Turno.
+    Usuarios registrados 
+        Peticion de turno (ID_turno fijo por usuario) ??        
+        Turno actual.
+        Tiempo de espera estimado.
+        Aviso turno anterior y Mi Turno.
+    Dador de turnos(APP)
+        Ofrecer turno QR/fisico
+
+Acceso al sistema -> WiFi/LTE??
+    WiFi: 
+        Cerrado.
+    LTE:
+        Accesible externamente.
+        IoT/MQTT ?
+
+COVID:
+    Aforo maximo
+    Mascarilla
+    Medidor Co2(mostrar datos)  ??
+
+Inclusión social: Investigar ????
+    Persona ciega:
+        -Turno automatico(Deteccion).
+        -Aviso en audio.
+    Persona sin algun miembro:
+        -Facilidades para interactuar con dador de turnos
+
+    Carritos con turno(IoT/NFC)?
+    
+    
