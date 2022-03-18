@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
 
+const worker= require('worker_threads');
+
 var dgram = require('dgram');
 
 var sem = require('semaphore')(1);
@@ -20,12 +22,14 @@ app.use(function(req, res, next) {
     res.header("Content-Length': contentLength,'Content-Type': 'application/json");
    next();
   });
-
+  const BD = require('./routes/BD');
+  const createTurn = require('./routes/createTurn');
   const newTurn = require('./routes/newTurn');
   const nextTurn = require('./routes/nextTurn');
   const suscribir = require('./routes/operaciones_broker');
 
-
+app.use('/BD',BD);
+app.use('/createTurn', createTurn);
 app.use('/newTurn',newTurn);//.setMaxListeners(1);
 app.use('/nextTurn',nextTurn);
 app.use('/suscribir',suscribir);

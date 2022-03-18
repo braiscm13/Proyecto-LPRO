@@ -3,29 +3,12 @@ const router = express.Router();
 const Turno = require('../models/Turno');
 const TT = require('../models/TT');
 
-
-//const Mutex = require('await-semaphore');
-
-//import {Semaphore} from 'await-semaphore';
-
-//var mutex = Mutex.Mutex;
-
-var n = 0;
-
 router.post('/', async (req, res) => {
-
 
     console.log(req.body);
 
-    // Concurrencia en la peticion de turno
-   // var release = await mutex.acquire();
-    n++;
-    //release();
-
-    // ------------------------------
-
     const newTurno = new Turno({
-        turno: n,
+        turno: req.body.turno,
         cola: req.body.cola,
         hora: new Date(),
         route: req.body.route,
@@ -47,7 +30,25 @@ router.post('/', async (req, res) => {
         if (err) console.log(err);
         else console.log(document);
     });
+// PUBLICACION MQTT PARA QUE VEAN TODOS EL CAMBIO
+/*    try {
+        res.json({res: await Turno.find({
+            cola: req.body.cola
+          })
+          .sort({
+            hora: 1
+          }).limit(5)
+        });
 
+  
+      } catch (e) {
+        console.log(e);
+        res.json({
+          status: "No hay mas turnos"
+        })
+      }
+              */
+// PUBLICACION MQTT PARA QUE VEAN TODOS EL CAMBIO
     console.log(newTurno);
     res.json(newTurno);
 });

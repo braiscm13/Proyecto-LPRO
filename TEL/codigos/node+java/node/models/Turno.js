@@ -3,7 +3,7 @@ const autoIncrement = require('mongoose-auto-increment');
 
 const turnoSchema = new Schema({
     turno: {
-        type: Number,
+        type: String,
         required: true 
      },
     cola : Number,

@@ -11,7 +11,7 @@ content-type: application/json
 
 {
     "cola": "1",
-    "route" : "prueba"
+    "turno" : "6666"
 }
 ###
 POST http://localhost:3000/nextTurn HTTP/1.1
@@ -19,4 +19,17 @@ content-type: application/json
 
 {
     "cola": "1"
+}
+###
+POST http://localhost:3000/createTurn HTTP/1.1
+content-type: application/json
+
+{
+    "cola": "1"
+}
+###
+POST http://localhost:3000/BD HTTP/1.1
+content-type: application/json
+
+{
 }

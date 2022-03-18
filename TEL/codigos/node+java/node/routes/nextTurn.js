@@ -3,11 +3,8 @@ const express = require('express');
 const router = express.Router();
 const Turno = require('../models/Turno');
 const fecha = new Date();
-/*
-import {Mutex} from 'await-semaphore';
- 
-var mutex = new Mutex();*/
 
+/*
 const host = 'localhost';
 const port = '1883';
 const clientId = `mqtt_Server`; //${Math.random().toString(16).slice(3)}`
@@ -20,54 +17,50 @@ const client = mqtt.connect(connectUrl, {
   username: 'server', //  ????
   password: 'public', // ????
   reconnectPeriod: 1000,
-})
-
-var old = new Array(0, 0, 0);
-var aux;
+});
+*/
 router.post('/', async (req, res) => {
 
-    if (req.body.cola != null) {
-        //   var release = await mutex.acquire();
-        try {
-            const newTurn = await Turno.findOneAndDelete({
-                    cola: req.body.cola
-                })
-                .sort({
-                    turno: old[aux]
-                }).limit(1);
-            old = newTurn.turno;
-            if (old[aux] >= 1000) {
-                old[aux] = 0;
-            }
-        } catch (e) {
-            //release();
-            res.json({
-                status: "No hay más turnos"
-            })
-        }
-        //release();
-        try {
-            
-                  siguiente_turno(old);     
-            res.json(old);
-        } catch (error) {
-
-        }
-
-
-
-    }
+  if (req.body.cola != null) {
     try {
-        res.json({
-            err: "cola necesaria"
+      var siguiente = await Turno.findOneAndDelete({
+          cola: req.body.cola
         })
+        .sort({
+          hora: 1
+        }).limit(1);
+      res.json({
+        next: siguiente,
+        following: await Turno.find({
+            cola: req.body.cola
+          })
+          .sort({
+            hora: 1
+          }).limit(4)
+      });
+
+    } catch (e) {
+      console.log(e);
+      res.json({
+        status: "No hay mas turnos"
+      })
+    }
+    /*
+        try {
+        } catch (error) {
+        }*/
+  } else {
+    try {
+      res.json({
+        err: "cola necesaria"
+      })
     } catch (error) {
 
     }
-
+  }
 });
 
-
+/*
 const topicTurno = 'turno';
 function siguiente_turno(turno) {
 
@@ -92,6 +85,6 @@ function siguiente_turno(turno) {
   
   client.on('message', (topicTurno, payload) => {
     console.log('Received Message:', topicTurno, payload.toString());
-  });
+  });*/
 
 module.exports = router;

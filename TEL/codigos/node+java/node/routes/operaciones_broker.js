@@ -24,9 +24,9 @@ function establishConnection() {
 
 const topicTurno = 'turno';
 
-module.exports.siguienteTurno = function (turno) {
+module.exports.siguienteTurno = function (data) {
 
-  client.publish(topicTurno, turno, {
+  client.publish(topicTurno, data, {//JSON.stringify({ a: 5 }) JSON.parse(received)
     qos: 0,
     retain: false
   }, (error) => {
