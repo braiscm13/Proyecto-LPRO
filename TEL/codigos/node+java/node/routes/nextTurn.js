@@ -2,7 +2,8 @@ const mqtt = require('mqtt');
 const express = require('express');
 const router = express.Router();
 const Turno = require('../models/Turno');
-const fecha = new Date();
+const init = Date.now();
+var espera=[5,5,5,1,1,1];
 
 /*
 const host = 'localhost';
@@ -29,8 +30,12 @@ router.post('/', async (req, res) => {
         .sort({
           hora: 1
         }).limit(1);
-      res.json({
+        var cola = siguiente.cola;
+        espera[cola]=(espera[cola]*espera[cola+3]+(Date.now()-init-siguiente.hora)/60000)/(espera[cola+3]+1);
+        espera[cola+3]+1;
+        res.json({
         next: siguiente,
+        espera: espera[cola],
         following: await Turno.find({
             cola: req.body.cola
           })

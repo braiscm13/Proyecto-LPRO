@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Turno = require('../models/Turno');
 const TT = require('../models/TT');
-
+const init = Date.now();
 router.post('/', async (req, res) => {
 
     console.log(req.body);
@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     const newTurno = new Turno({
         turno: req.body.turno,
         cola: req.body.cola,
-        hora: new Date(),
+        hora: Date.now()-init,
         route: req.body.route,
 
     });
