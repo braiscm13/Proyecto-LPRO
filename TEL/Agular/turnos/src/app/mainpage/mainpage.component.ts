@@ -17,15 +17,16 @@ export class MainpageComponent implements OnInit {
     private location: Location
   ) {}
 
-  turnos: any={};
-  cola: Number;
+  turno: any={};
+  cola: number;
 
-  createTurn(cola){
-    this.cola=cola;
+  createTurn(){
 
-    this.consultasService.createTurn(this.cola).subscribe(turno => {
-      console.log(turno);
-      this.turnos=turno;
+    this.consultasService.createTurn(1).subscribe
+
+    this.consultasService.createTurn(this.cola).subscribe(turnos => {
+      console.log(turnos);
+      this.turno=turnos;
   
    });
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Turnos} from './interfaces/turnos';
+import {Turno} from './interfaces/turnos';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ConsultasService {
 
 
   createTurn(cola1){
-    return this.http.post<Turnos>('http://localhost:3000/createTurn',{cola : cola1});
+    return this.http.post<Turno>('http://localhost:3000/createTurn',{cola : cola1});
   }
 
   /*getAnimal(){
