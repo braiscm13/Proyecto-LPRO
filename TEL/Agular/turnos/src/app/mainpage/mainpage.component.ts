@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import {ConsultasService} from '../consultas.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -7,7 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private consultasService: ConsultasService,
+    private location: Location
+  ) {}
+
+  turnos: any={};
+  cola: Number;
+
+  createTurn(cola){
+    this.cola=cola;
+
+    this.consultasService.createTurn(this.cola).subscribe(turno => {
+      console.log(turno);
+      this.turnos=turno;
+  
+   });
+
+  }
+
 
   ngOnInit(): void {
   }

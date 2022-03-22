@@ -1,4 +1,6 @@
 export interface Turnos {
-    numero : number;
-
+  turno: String,
+  cola : Number,
+  hora : Date,
+  route : String
   }

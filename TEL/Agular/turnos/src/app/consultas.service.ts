@@ -11,16 +11,14 @@ export class ConsultasService {
 
 
 
-  //Zona animales
-
-  getAnimales(){
-    return this.http.get<Turnos>('http://localhost:3000/read/All');
+  createTurn(cola1){
+    return this.http.post<Turnos>('http://localhost:3000/createTurn',{cola : cola1});
   }
 
-  getAnimal(){
+  /*getAnimal(){
 
 
-      return this.http.post<Turnos>('http://localhost:3000/read/One',{});
+      return this.http.post<Turnos>('http://localhost:3000/createTurn',{});
 
 
  
@@ -47,7 +45,7 @@ export class ConsultasService {
 
   createAnimal(){
     return this.http.post<Turnos>('http://localhost:3000/create',{});
-  }
+  }*/
 
 
 
