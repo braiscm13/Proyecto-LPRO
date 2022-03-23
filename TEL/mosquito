@@ -1,0 +1,2 @@
+sudo mosquitto -c /etc/mosquitto/mosquitto.conf
+sudo netstat -at

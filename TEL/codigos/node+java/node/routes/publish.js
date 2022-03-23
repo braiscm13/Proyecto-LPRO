@@ -14,9 +14,11 @@ const client = mqtt.connect(connectUrl, {
   reconnectPeriod: 1000,
 })
 
-module.exports = function s(turno) {
-
-    client.publish(topicTurno, turno, {
+const publish = async (data,cola)=>{
+var topic="cola"+cola;
+console.log(data);
+//var aux =new Buffer.from(data);//{"sensor_id":1234,"temperature":13};
+    client.publish("cola1",JSON.stringify(data), {
       qos: 0,
       retain: false
     }, (error) => {
@@ -24,5 +26,8 @@ module.exports = function s(turno) {
         console.error(error)
       }
     });
-    console.log("siguiente turno published successfully");
+    console.log("siguiente turno published successfully cola: "+topic);
+  };
+  module.exports={
+    publish,
   }

@@ -26,13 +26,14 @@ app.use(function(req, res, next) {
   const createTurn = require('./routes/createTurn');
   const newTurn = require('./routes/newTurn');
   const nextTurn = require('./routes/nextTurn');
-  const suscribir = require('./routes/operaciones_broker');
+  const {publish} = require('./routes/publish');
+  //const suscribir = require('./routes/operaciones_broker');
 
 app.use('/BD',BD);
 app.use('/createTurn', createTurn);
 app.use('/newTurn',newTurn);//.setMaxListeners(1);
 app.use('/nextTurn',nextTurn);
-app.use('/suscribir',suscribir);
+//app.use('/publish',publish);
 
 
 app.get("/",(req,res)=>{

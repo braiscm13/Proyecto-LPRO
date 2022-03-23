@@ -1,0 +1,193 @@
+[
+    {
+        "id": "7bcdb78016cb9539",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d1e9e0a22524c584",
+        "type": "mqtt in",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "topic": "cola1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "1bebbab74142aa87"
+            ]
+        ]
+    },
+    {
+        "id": "ac84cfcbc359c1a0",
+        "type": "debug",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1bebbab74142aa87",
+        "type": "json",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "ac84cfcbc359c1a0"
+            ]
+        ]
+    },
+    {
+        "id": "796d2246671e25f6",
+        "type": "mqtt in",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "topic": "cola2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "353b6d8c4b28e3d4"
+            ]
+        ]
+    },
+    {
+        "id": "862228c0ec658a02",
+        "type": "debug",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "353b6d8c4b28e3d4",
+        "type": "json",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "862228c0ec658a02"
+            ]
+        ]
+    },
+    {
+        "id": "a19585169e8c2b47",
+        "type": "mqtt in",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "topic": "cola3",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "89259406e8a43ea2"
+            ]
+        ]
+    },
+    {
+        "id": "0f46f9d893555d5c",
+        "type": "debug",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "89259406e8a43ea2",
+        "type": "json",
+        "z": "7bcdb78016cb9539",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "0f46f9d893555d5c"
+            ]
+        ]
+    },
+    {
+        "id": "9e4c4c35e39134b0",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
