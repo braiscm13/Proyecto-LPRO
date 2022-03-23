@@ -24,6 +24,8 @@ export class MainpageComponent implements OnInit {
   turno1: any={};
   turno2: any={};
   turno3: any={};
+
+  cola: number=0;
   cola1=false;
   cola2=false;
   cola3=false;
@@ -36,7 +38,10 @@ export class MainpageComponent implements OnInit {
    if(this.cola1){
 
     console.log("Cola1");
-    this.consultasService.createTurn(1).subscribe(turnos =>{
+
+    this.cola=1;
+
+    this.consultasService.createTurn(this.cola).subscribe(turnos =>{
       console.log(turnos);
       this.turno1=turnos;
 
