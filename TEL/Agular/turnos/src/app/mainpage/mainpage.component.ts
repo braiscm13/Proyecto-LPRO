@@ -11,24 +11,26 @@ import {ConsultasService} from '../consultas.service';
 })
 export class MainpageComponent implements OnInit {
 
+
   constructor(
     private route: ActivatedRoute,
     private consultasService: ConsultasService,
     private location: Location
   ) {}
 
-  turno: any={};
-  cola: number;
+  goBack(): void {
+    this.location.back();
+  }
+
+
 
   createTurn(){
 
-    this.consultasService.createTurn(1).subscribe
 
-    this.consultasService.createTurn(this.cola).subscribe(turnos => {
-      console.log(turnos);
-      this.turno=turnos;
-  
-   });
+    console.log("Hola que tal");
+    //console.log(cola1);
+
+
 
   }
 
