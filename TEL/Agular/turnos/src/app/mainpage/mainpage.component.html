@@ -1,12 +1,16 @@
 <h1>Escoja las colas de los turnos</h1>
 
-<input type="checkbox" name="Carniceria" #cola1><label for="Carniceria">Carniceria</label>
-<br>
-<input type="checkbox" name="Pescaderia" ><label for="Pescaderia">Pescaderia</label>
-<br>
-<input type="checkbox" name="Charcuteria" ><label for="Charcuteria">Charcuteria</label>
-<br>
 
+
+<div class="contenedor">
+
+    
+    <mat-checkbox [(ngModel)]="cola1">Carniceria</mat-checkbox>
+    <br>
+    <mat-checkbox [(ngModel)]="cola2">Pescaderia</mat-checkbox>
+    <br>
+    <mat-checkbox [(ngModel)]="cola3">Charcuteria</mat-checkbox>
+    <br>
 
 <button (click)="createTurn()" class="btn btn-outline-primary">Imprimir turno</button>
 <br>
