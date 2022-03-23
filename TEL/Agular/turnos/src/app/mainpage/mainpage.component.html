@@ -1,0 +1,16 @@
+<h1>Escoja las colas de los turnos</h1>
+
+<input type="checkbox" id="Carniceria" ng-model="vm.carniceria"><label for="Carniceria">Carniceria</label>
+<br>
+<input type="checkbox" id="Pescaderia" ng-model="vm.pescaderia"><label for="Pescaderia">Pescaderia</label>
+<br>
+<input type="checkbox" id="Charcuteria" ng-model="vm.charcuteria"><label for="Charcuteria">Charcuteria</label>
+<br>
+
+
+<button (click)="createTurn()" class="btn btn-outline-primary">Imprimir turno</button>
+<br>
+<br>
+<nav>
+<a routerLink="/qr">Obtener turno por la aplicación</a>
+</nav>
