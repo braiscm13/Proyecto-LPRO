@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+
+
 import {ConsultasService} from '../consultas.service';
 
 @Component({
@@ -11,24 +13,74 @@ import {ConsultasService} from '../consultas.service';
 })
 export class MainpageComponent implements OnInit {
 
+
   constructor(
     private route: ActivatedRoute,
     private consultasService: ConsultasService,
     private location: Location
   ) {}
 
-  turno: any={};
-  cola: number;
+
+  turno1: any={};
+  turno2: any={};
+  turno3: any={};
+
+  cola: number=0;
+  cola1=false;
+  cola2=false;
+  cola3=false;
+
+
 
   createTurn(){
 
-    this.consultasService.createTurn(1).subscribe
 
-    this.consultasService.createTurn(this.cola).subscribe(turnos => {
+   if(this.cola1){
+
+    console.log("Cola1");
+
+    this.cola=1;
+
+    this.consultasService.createTurn(this.cola).subscribe(turnos =>{
       console.log(turnos);
-      this.turno=turnos;
-  
-   });
+      this.turno1=turnos;
+
+    }
+    )
+
+
+   }
+
+   if(this.cola2){
+
+    console.log("Cola2");
+    this.consultasService.createTurn(2).subscribe(turnos =>{
+      console.log(turnos);
+      this.turno2=turnos;
+
+    }
+    )
+
+
+
+   }
+
+   if(this.cola3){
+
+    console.log("Cola3");
+    this.consultasService.createTurn(3).subscribe(turnos =>{
+      console.log(turnos);
+      this.turno3=turnos;
+
+    }
+    )
+
+
+
+
+   }
+
+
 
   }
 

@@ -11,6 +11,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { QrComponent } from './qr/qr.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { ConsultasService } from './consultas.service';
+import {MatCardModule} from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ConsultasService } from './consultas.service';
     QRCodeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule
   ],
   providers: [ConsultasService],
   bootstrap: [AppComponent]
