@@ -18,7 +18,7 @@ const publish = async (data,cola)=>{
 var topic="cola"+cola;
 console.log(data);
 //var aux =new Buffer.from(data);//{"sensor_id":1234,"temperature":13};
-    client.publish("cola1",JSON.stringify(data), {
+    client.publish(topic,JSON.stringify(data), {
       qos: 0,
       retain: false
     }, (error) => {

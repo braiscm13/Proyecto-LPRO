@@ -10,9 +10,9 @@ router.post('/', async (req, res) => {
     while(true){
     randomString = crypto.randomBytes(2).toString('hex');
 
-    if(await Turno.findOneAndDelete({
+    if(await Turno.find({
         cola: req.body.cola,
-        turno, randomString
+        turno: randomString
     })) break;
     }
     res.json({turno: randomString});
