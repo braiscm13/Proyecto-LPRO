@@ -27,8 +27,8 @@ class FaceDetection:
                              "/Users/juan/Documents/human_recognition/mask/yolov4_face_mask.weights", self.classes)
         else:
             print("loading yolov3-tiny-prn...")
-            self.colors = [(0, 255, 0), (0, 0, 0), (0, 0, 255)]
-            self.classes = ["mask", "modo facha, (no mask)q", "no mask"]
+            self.colors = [(0, 255, 0), (0, 0, 255), (0, 0, 255)]
+            self.classes = ["mask", "no mask", "no mask"]
             self.yolo = YOLO("/Users/juan/Documents/human_recognition/mask/mask-yolov3-tiny-prn.cfg",
                              "/Users/juan/Documents/human_recognition/mask/mask-yolov3-tiny-prn.weights", self.classes)
         self.yolo.size = int(args['size'])
