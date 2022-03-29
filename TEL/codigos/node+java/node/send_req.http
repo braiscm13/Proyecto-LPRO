@@ -12,8 +12,8 @@ POST http://localhost:3000/newTurn HTTP/1.1
 content-type: application/json
 
 {  
-    "cola": "1", 
-    "turno" : "3333"
+    "cola": "3", 
+    "turno" : "addc"
     }
 
 ###
@@ -21,7 +21,7 @@ POST http://localhost:3000/nextTurn HTTP/1.1
 content-type: application/json
 
 {   
-     "cola": "1"
+     "cola": "3"
      }
 ###
 POST http://localhost:3000/createTurn HTTP/1.1
