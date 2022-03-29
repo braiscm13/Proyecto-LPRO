@@ -44,12 +44,28 @@ export class MainpageComponent implements OnInit {
     this.consultasService.createTurn(this.cola).subscribe(turnos =>{
       console.log(turnos);
       this.turno1=turnos;
+      
+      this.consultasService.newTurn(this.turno1.turno, this.turno1.cola).subscribe(turnos =>{
+        console.log(turnos);
+        this.turno1=turnos;
 
     }
-    )
+    );
+
+    }
+    );
+
+
+    //console.log(this.turno1);
+    
+
+
+
+
 
 
    }
+
 
    if(this.cola2){
 
@@ -58,8 +74,15 @@ export class MainpageComponent implements OnInit {
       console.log(turnos);
       this.turno2=turnos;
 
+      this.consultasService.newTurn(this.turno2.turno, this.turno2.cola).subscribe(turnos =>{
+        console.log(turnos);
+        this.turno2=turnos;
+
     }
-    )
+    );
+
+    }
+    );
 
 
 
@@ -72,8 +95,15 @@ export class MainpageComponent implements OnInit {
       console.log(turnos);
       this.turno3=turnos;
 
+      this.consultasService.newTurn(this.turno3.turno, this.turno3.cola).subscribe(turnos =>{
+        console.log(turnos);
+        this.turno3=turnos;
+
     }
-    )
+    );
+
+    }
+    );
 
 
 

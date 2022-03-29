@@ -1,5 +1,5 @@
 export interface Turno {
-  nuemro: string;
+  turno: string;
   cola : number;
   hora : Date;
   route : string;
