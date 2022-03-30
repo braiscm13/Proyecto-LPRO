@@ -21,11 +21,13 @@ export class MainpageComponent implements OnInit {
   ) {}
 
 
-  turno1: any={};
-  turno2: any={};
-  turno3: any={};
+  turno: any={};
 
-  cola: number=0;
+  turno1: any;
+  turno2: any;
+  turno3: any;
+
+  colas:  String ='';
   cola1=false;
   cola2=false;
   cola3=false;
@@ -35,80 +37,130 @@ export class MainpageComponent implements OnInit {
   createTurn(){
 
 
-   if(this.cola1){
+   if(this.cola1 && this.cola2 && this.cola3){
 
-    console.log("Cola1");
+    console.log("Colas 1, 2 y 3");
 
-    this.cola=1;
-
-    this.consultasService.createTurn(this.cola).subscribe(turnos =>{
-      console.log(turnos);
-      this.turno1=turnos;
+    this.colas="123";
       
-      this.consultasService.newTurn(this.turno1.turno, this.turno1.cola).subscribe(turnos =>{
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
         console.log(turnos);
-        this.turno1=turnos;
+        this.turno=turnos.vuelta;
+        this.turno1= this.turno.res[0];
+        this.turno2= this.turno.res[1];
+        this.turno3= this.turno.res[2];
+        //console.log(this.turno1+this.turno2+this.turno3);
+
 
     }
     );
 
+   }
+
+   if(this.cola1 && !this.cola2 && !this.cola3){
+
+    console.log("Cola 1");
+
+    this.colas="1";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
+        console.log(turnos);
+        this.turno=turnos.vuelta;
+        this.turno1= this.turno.res;
+
+
     }
     );
-
-
-    //console.log(this.turno1);
-    
-
-
-
-
-
 
    }
 
 
-   if(this.cola2){
+   if(!this.cola1 && this.cola2 && !this.cola3){
 
-    console.log("Cola2");
-    this.consultasService.createTurn(2).subscribe(turnos =>{
-      console.log(turnos);
-      this.turno2=turnos;
+    console.log("Cola 2");
 
-      this.consultasService.newTurn(this.turno2.turno, this.turno2.cola).subscribe(turnos =>{
+    this.colas="2";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
         console.log(turnos);
-        this.turno2=turnos;
+        this.turno=turnos.vuelta;
+        this.turno2= this.turno.res;
 
     }
     );
-
-    }
-    );
-
-
 
    }
 
-   if(this.cola3){
+   if(!this.cola1 && !this.cola2 && this.cola3){
 
-    console.log("Cola3");
-    this.consultasService.createTurn(3).subscribe(turnos =>{
-      console.log(turnos);
-      this.turno3=turnos;
+    console.log("Cola 3");
 
-      this.consultasService.newTurn(this.turno3.turno, this.turno3.cola).subscribe(turnos =>{
+    this.colas="3";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
         console.log(turnos);
-        this.turno3=turnos;
+        this.turno=turnos.vuelta;
+        this.turno3= this.turno.res;
 
     }
     );
-
-    }
-    );
-
-
-
 
    }
+
+   if(this.cola1 && this.cola2 && !this.cola3){
+
+    console.log("Colas 1 y 2");
+
+    this.colas="12";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
+        console.log(turnos);
+        this.turno=turnos.vuelta;
+        this.turno1= this.turno.res[0];
+        this.turno2= this.turno.res[1];
+
+    }
+    );
+
+   }
+
+   if(this.cola1 && !this.cola2 && this.cola3){
+
+    console.log("Cola 1 y 3");
+
+    this.colas="13";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
+        console.log(turnos);
+        this.turno=turnos.vuelta;
+        this.turno1= this.turno.res[0];
+        this.turno3= this.turno.res[1];
+
+    }
+    );
+
+   }
+
+   if(!this.cola1 && this.cola2 && this.cola3){
+
+    console.log("Colas 2 y 3");
+
+    this.colas="23";
+      
+      this.consultasService.newTurn(this.colas).subscribe((turnos: any) =>{
+        console.log(turnos);
+        this.turno=turnos.vuelta;
+        this.turno2= this.turno.res[0];
+        this.turno3= this.turno.res[1];
+
+    }
+    );
+
+   }
+
+
+      //setTimeout(() => {  console.log(this.turno); }, 10); Con esto podemos hacer que espere lo suficiente como para que acabe la consulta
+
 
 
 
