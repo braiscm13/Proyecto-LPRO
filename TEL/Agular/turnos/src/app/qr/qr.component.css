@@ -1,0 +1,7 @@
+.padre {
+    height: 950px;
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,17 +4,17 @@
 
 <div class="contenedor">
 
-    
+
     <mat-checkbox [(ngModel)]="cola1">Carniceria</mat-checkbox>
     <br>
     <mat-checkbox [(ngModel)]="cola2">Pescaderia</mat-checkbox>
     <br>
     <mat-checkbox [(ngModel)]="cola3">Charcuteria</mat-checkbox>
     <br>
-
-<button (click)="createTurn()" class="btn btn-outline-primary">Imprimir turno</button>
-<br>
-<br>
-<nav>
-<button (click)="createTurnQR()" >Obtener turno por la aplicación</button>
-</nav>
+    <br>
+    <button (click)="createTurn()" class="btn btn-outline-primary">Imprimir turno</button>
+    <br>
+    <br>
+    <nav>
+        <button (click)="createTurnQR()" class="btn btn-outline-primary">Obtener turno por la aplicación</button>
+    </nav>
