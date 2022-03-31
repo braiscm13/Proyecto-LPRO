@@ -14,7 +14,6 @@ const turnoSchema = new Schema({
      },
     cola : Number,
     hora : Long,
-    route : String
 });
 /*
 turnoSchema.plugin(autoIncrement.plugin, {

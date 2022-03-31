@@ -2,55 +2,66 @@ const express = require('express');
 const router = express.Router();
 const Turno = require('../models/Turno');
 const TT = require('../models/TT');
+const crypto = require('crypto');
 const init = Date.now();
 router.post('/', async (req, res) => {
 
-    console.log(req.body);
+  var aux = [0, 0, 0];
+  var peticion = req.body.cola.split('');
+  var tam = peticion.length;
 
+  for (var i = 0; i < tam; i++) {
+    while (true) {
+      aux[i] = crypto.randomBytes(2).toString('hex');
+      if (await Turno.find({
+          cola: peticion[i],
+          turno: aux[i]
+        })) break;
+    }
     const newTurno = new Turno({
-        turno: req.body.turno,
-        cola: req.body.cola,
-        hora: Date.now()-init,
-        route: req.body.route,
-
+      turno: aux[i],
+      cola: peticion[i],
+      hora: Date.now() - init
+    }).save((err, document) => {
+      if (err) console.log(err);
+      else console.log(document);
     });
-
-    newTurno.save((err, document) => {
-        if (err) console.log(err);
-        else console.log(document);
-    });
-
-
     const newTT = new TT({
-        cola: req.body.cola,
-        hora: new Date()
+      cola: peticion[i],
+      hora: new Date()
+    }).save((err, document) => {
+      if (err) console.log(err);
+      else console.log(document);
     });
+  }
+  var vuelta;
 
-    newTT.save((err, document) => {
-        if (err) console.log(err);
-        else console.log(document);
-    });
-// PUBLICACION MQTT PARA QUE VEAN TODOS EL CAMBIO
-/*    try {
-        res.json({res: await Turno.find({
-            cola: req.body.cola
-          })
-          .sort({
-            hora: 1
-          }).limit(5)
-        });
+  if (tam == 1) {
 
-  
-      } catch (e) {
-        console.log(e);
-        res.json({
-          status: "No hay mas turnos"
-        })
-      }
-              */
-// PUBLICACION MQTT PARA QUE VEAN TODOS EL CAMBIO
-    console.log(newTurno);
-    res.json(newTurno);
+    vuelta = {
+      res: aux[0]
+    };
+  } else if (tam == 2) {
+    vuelta = {
+      res: [
+        aux[0],
+        aux[1]
+      ]
+    };
+  } else {
+    vuelta = {
+      res: [
+        aux[0],
+        aux[1],
+        aux[2]
+      ]
+    };
+  }
+
+  res.json({
+    vuelta
+  });
+
 });
 
 module.exports = router;

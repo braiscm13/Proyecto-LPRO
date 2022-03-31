@@ -11,8 +11,8 @@ export class ConsultasService {
 
 
 
-  createTurn(cola:number ){
-    return this.http.post<Turno>('http://localhost:3000/createTurn',{cola: cola});
+  newTurn(colas: String){
+    return this.http.post('http://localhost:3000/newTurn',{cola: colas});
   }
 
   /*getAnimal(){
