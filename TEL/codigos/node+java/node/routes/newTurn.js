@@ -4,6 +4,10 @@ const Turno = require('../models/Turno');
 const TT = require('../models/TT');
 const crypto = require('crypto');
 const init = Date.now();
+const {
+  publish,
+  publish_hay
+} = require('./publish');
 router.post('/', async (req, res) => {
 
   var aux = [0, 0, 0];
@@ -33,6 +37,7 @@ router.post('/', async (req, res) => {
       if (err) console.log(err);
       else console.log(document);
     });
+    publish_hay(true,peticion[i]);
   }
   var vuelta;
 

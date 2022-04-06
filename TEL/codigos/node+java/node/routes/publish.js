@@ -28,6 +28,21 @@ console.log(data);
     });
     console.log("siguiente turno published successfully cola: "+topic);
   };
+  const publish_hay = async (data,cola)=>{
+    var topic="hay"+cola;
+    console.log(data);
+    //var aux =new Buffer.from(data);//{"sensor_id":1234,"temperature":13};
+        client.publish(topic,JSON.stringify(data), {
+          qos: 0,
+          retain: false
+        }, (error) => {
+          if (error) {
+            console.error(error)
+          }
+        });
+        console.log("siguiente turno published successfully cola: "+topic);
+      };
   module.exports={
     publish,
+    publish_hay,
   }
