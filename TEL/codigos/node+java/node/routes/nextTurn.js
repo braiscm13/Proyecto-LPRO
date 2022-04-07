@@ -1,7 +1,8 @@
 const mqtt = require('mqtt');
 const express = require('express');
 const {
-  publish
+  publish,
+  publish_hay
 } = require('./publish');
 
 const router = express.Router();
@@ -9,21 +10,6 @@ const Turno = require('../models/Turno');
 const init = Date.now();
 var espera = [5, 5, 5, 1, 1, 1];
 
-/*
-const host = 'localhost';
-const port = '1883';
-const clientId = `mqtt_Server`; //${Math.random().toString(16).slice(3)}`
-
-const connectUrl = `mqtt://${host}:${port}`
-const client = mqtt.connect(connectUrl, {
-  clientId,
-  clean: true,
-  connectTimeout: 4000,
-  username: 'server', //  ????
-  password: 'public', // ????
-  reconnectPeriod: 1000,
-});
-*/
 router.post('/', async (req, res) => {
 
   if (req.body.cola != null) {
@@ -53,11 +39,12 @@ router.post('/', async (req, res) => {
         Following: following
       };
       publish(respuesta, cola);
-
+      if(following.length==0){
+        publish_hay(false,req.body.cola);
+      }
       res.json(respuesta);
 
-    } catch (e) {
-      console.log(e);
+    } catch (e) {//no hay nadad en la cola
       res.json({
         status: "No hay mas turnos"
       })

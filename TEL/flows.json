@@ -1,0 +1,375 @@
+[
+    {
+        "id": "245f03161e031bcb",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "0a0bae05e29cdc11",
+        "type": "mqtt in",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "topic": "hay1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "436e7d9894085782"
+            ]
+        ]
+    },
+    {
+        "id": "03c099ed9fc3d30a",
+        "type": "ui_button",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "group": "bfa2ca7286b51f9a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Siguiente",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"cola\":\"1\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 60,
+        "wires": [
+            [
+                "b95aab6e1fc258f8"
+            ]
+        ]
+    },
+    {
+        "id": "b95aab6e1fc258f8",
+        "type": "http request",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/nextTurn",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "436e7d9894085782",
+        "type": "json",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "24268a68f648e3b7"
+            ]
+        ]
+    },
+    {
+        "id": "24268a68f648e3b7",
+        "type": "ui_text",
+        "z": "245f03161e031bcb",
+        "group": "bfa2ca7286b51f9a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado cola: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c2e372cbc2a11428",
+        "type": "mqtt in",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "topic": "hay2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "de48598ad3a95b8a"
+            ]
+        ]
+    },
+    {
+        "id": "df9a41605913e4e3",
+        "type": "ui_button",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "group": "56de34d93e97d38c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Siguiente",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"cola\":\"2\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "ce09fdada561e2e9"
+            ]
+        ]
+    },
+    {
+        "id": "ce09fdada561e2e9",
+        "type": "http request",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/nextTurn",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de48598ad3a95b8a",
+        "type": "json",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "60279b793cb1d517"
+            ]
+        ]
+    },
+    {
+        "id": "60279b793cb1d517",
+        "type": "ui_text",
+        "z": "245f03161e031bcb",
+        "group": "56de34d93e97d38c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado cola: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d78c9324612c3a6b",
+        "type": "mqtt in",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "topic": "hay3",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "9e4c4c35e39134b0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "bed0f45d92e62448"
+            ]
+        ]
+    },
+    {
+        "id": "ae275b7089898d93",
+        "type": "ui_button",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "group": "3d95687f9f59f0a0",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Siguiente",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"cola\":\"3\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 340,
+        "wires": [
+            [
+                "774ec607028b0f00"
+            ]
+        ]
+    },
+    {
+        "id": "774ec607028b0f00",
+        "type": "http request",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:3000/nextTurn",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 420,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bed0f45d92e62448",
+        "type": "json",
+        "z": "245f03161e031bcb",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "8255073b31605f49"
+            ]
+        ]
+    },
+    {
+        "id": "8255073b31605f49",
+        "type": "ui_text",
+        "z": "245f03161e031bcb",
+        "group": "3d95687f9f59f0a0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado cola: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9e4c4c35e39134b0",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bfa2ca7286b51f9a",
+        "type": "ui_group",
+        "name": "Carnicería",
+        "tab": "5351bdd7ed24d877",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "56de34d93e97d38c",
+        "type": "ui_group",
+        "name": "Charcutería",
+        "tab": "5351bdd7ed24d877",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3d95687f9f59f0a0",
+        "type": "ui_group",
+        "name": "Pescadería",
+        "tab": "5351bdd7ed24d877",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5351bdd7ed24d877",
+        "type": "ui_tab",
+        "name": "trabajador1",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
