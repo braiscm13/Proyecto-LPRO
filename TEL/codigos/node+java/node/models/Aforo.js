@@ -6,7 +6,7 @@ const aforoSchema = new Schema({
         type: String,
         required: true 
      },
-    timestamp : timestamp
+    fecha : Date
 });
 
 module.exports = model('Aforo',aforoSchema);
