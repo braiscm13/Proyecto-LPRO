@@ -42,7 +42,21 @@ console.log(data);
         });
         console.log("siguiente turno published successfully cola: "+topic);
       };
+
+      const publish_aforo = async (data)=>{
+        //var aux =new Buffer.from(data);//{"sensor_id":1234,"temperature":13};
+            client.publish("aforo",JSON.stringify(data), {
+              qos: 0,
+              retain: false
+            }, (error) => {
+              if (error) {
+                console.error(error)
+              }
+            });
+            console.log("AFORO published successfully: "+data);
+          };
   module.exports={
     publish,
     publish_hay,
+    publish_aforo,
   }

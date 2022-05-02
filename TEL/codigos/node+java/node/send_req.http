@@ -1,10 +1,12 @@
-GET http://localhost:3000/ HTTP/1.1
+GET http://192.168.8.6:3000/ HTTP/1.1
 ###
 GET http://localhost:3000/nextTurn/suscribe HTTP/1.1
 ###
 GET http://localhost:3000/BD/Turno HTTP/1.1
 ###
 GET http://localhost:3000/BD/TT HTTP/1.1
+###
+GET http://localhost:3000/BD/People HTTP/1.1
 
 
 ###
@@ -12,7 +14,15 @@ POST http://localhost:3000/newTurn HTTP/1.1
 content-type: application/json
 
 {  
-    "cola": "123"
+    "cola": "1"
+    }
+
+    ###
+POST http://localhost:3000/newTurn/imp HTTP/1.1
+content-type: application/json
+
+{  
+    "cola": "1"
     }
 
 ###
@@ -42,4 +52,20 @@ content-type: application/json
 
 {
 
+}
+
+###
+POST http://localhost:3000/BD/People HTTP/1.1
+content-type: application/json
+
+{
+    "people": "3"
+}
+
+###
+POST http://localhost:3000/BD/Aforo HTTP/1.1
+content-type: application/json
+
+{
+    
 }

@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
       }
       var respuesta = {
         Next: siguiente.turno,
-        Espera: espera[cola-1],
+        Espera: Math.round(espera[cola-1]),
         Following: following
       };
       publish(respuesta, cola);

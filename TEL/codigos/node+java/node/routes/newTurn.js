@@ -3,6 +3,13 @@ const router = express.Router();
 const Turno = require('../models/Turno');
 const TT = require('../models/TT');
 const crypto = require('crypto');
+
+const impresora =require('./impresora.js');
+const imprimir=async function(){
+  const impr = new impresora();
+  const write = await impr.write();
+};
+
 const init = Date.now();
 const {
   publish,
@@ -68,5 +75,8 @@ router.post('/', async (req, res) => {
   });
 
 });
-
+router.post('/imp', async (req, res)=>{
+    imprimir(req.body);
+    console.log(req.body);
+});
 module.exports = router;
