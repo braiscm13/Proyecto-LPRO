@@ -178,7 +178,7 @@ export class MainpageComponent implements OnInit {
       this.router.navigate(['/qr', this.turno1, this.turno2, this.turno3, this.colas]);
 
 
-    }, 100); //Con esto podemos hacer que espere lo suficiente como para que acabe la consulta
+    }, 1000); //Con esto podemos hacer que espere lo suficiente como para que acabe la consulta
 
 
 
