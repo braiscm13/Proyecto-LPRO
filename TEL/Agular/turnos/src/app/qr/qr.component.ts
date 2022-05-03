@@ -87,11 +87,11 @@ export class QrComponent implements OnInit {
 
 
 
-   /* setTimeout(() => {
+    /*setTimeout(() => {
 
       this.goBack();
 
-    }, 10000);*/
+    }, 1000);*/
 
 
 
