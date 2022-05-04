@@ -17,13 +17,14 @@ content-type: application/json
     "cola": "1"
     }
 
-    ###
+###
 POST http://localhost:3000/newTurn/imp HTTP/1.1
 content-type: application/json
 
 {  
-    "cola": "1"
+    "cola": "123"
     }
+
 
 ###
 POST http://localhost:3000/nextTurn HTTP/1.1

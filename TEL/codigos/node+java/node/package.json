@@ -17,7 +17,10 @@
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-long": "^0.5.1",
     "mqtt": "^4.3.6",
+    "node-printer": "^1.0.4",
     "nodemon": "^2.0.15",
-    "semaphore": "^1.1.0"
+    "search-printers": "^0.1.0",
+    "semaphore": "^1.1.0",
+    "text2png": "^2.3.0"
   }
 }

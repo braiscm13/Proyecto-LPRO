@@ -44,7 +44,7 @@ export class MainpageComponent implements OnInit {
 
       this.colas = "123";
 
-      this.consultasService.newTurn(this.colas).subscribe((turnos: any) => {
+      this.consultasService.newTurnImp(this.colas).subscribe((turnos: any) => {
         console.log(turnos);
         this.turno = turnos.vuelta;
         this.turno1 = this.turno.res[0];
