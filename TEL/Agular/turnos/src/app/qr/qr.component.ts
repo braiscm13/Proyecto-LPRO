@@ -91,7 +91,7 @@ export class QrComponent implements OnInit {
 
       this.goBack();
 
-    }, 1000);
+    }, 10000);
 
 
 
